@@ -11,6 +11,7 @@ public class Estudante extends Pessoa {
     }
 
     public void consolidarNota(int UNIDADE, double nota){
+
         notas[UNIDADE-1] = nota;
     }
 
@@ -34,8 +35,11 @@ public class Estudante extends Pessoa {
         return notas;
     }
 
-    public void setNotas(double[] notas) {
-        this.notas = notas;
+    public void setNotas(int nota, double valor) {
+        // Ajusta o índice do array
+        int indiceDoArray = nota - 1;
+
+        notas[indiceDoArray] = valor;
     }
 
     private int definirUnidadeApartirDoMes(int mes) {
@@ -57,10 +61,10 @@ public class Estudante extends Pessoa {
         int unidade = definirUnidadeApartirDoMes(mes);
 
         if(getNotas()[unidade-1] >= 7){
-            return "O aluno está na média na unidade" + (unidade-1) +" e obteve a nota: " + getNotas()[unidade-1];
+            return "O aluno está na média na unidade " + (unidade-1) +" e obteve a nota: " + getNotas()[unidade-1];
         }
 
-        return "O aluno não está na média na unidade" + (unidade-1) +" e obteve a nota: " + getNotas()[unidade-1];
+        return "O aluno não está na média na unidade " + (unidade-1) +" e obteve a nota: " + getNotas()[unidade-1];
 
     }
 

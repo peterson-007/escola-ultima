@@ -19,6 +19,12 @@ class ResponsavelTest {
         responsavel2 = new Responsavel("Paulo Araújo");
         responsavel3 = new Responsavel("Sandra Peixoto");
 
+        responsavel1.setPagamentos(2,true);
+        responsavel1.setPagamentos(3,false);
+        responsavel1.setPagamentos(4,true);
+
+        responsavel2.setPagamentos(5,true);
+
     }
 
     @Test
@@ -43,6 +49,8 @@ class ResponsavelTest {
 
     @Test
     void testSetPagamentos() {
+        responsavel1.setPagamentos(1, true);
+        responsavel1.setPagamentos(13,true);
     }
 
     @Test
@@ -51,10 +59,18 @@ class ResponsavelTest {
 
     @Test
     void testVerSituacao() {
+        responsavel1.verSituacao(2);
+        responsavel1.verSituacao(3);
     }
 
     @Test
     void testRelatorio() {
+        String resultado;
+        resultado = responsavel1.relatorio();
+        System.out.println(resultado);
+
+        resultado = responsavel2.relatorio();
+        System.out.println(resultado);
     }
 
     @AfterEach
